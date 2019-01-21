@@ -5,6 +5,20 @@ function solve() {
 
 	let targetDiv = document.getElementById("allNumbers");
 	
+	function CalculatingEndResult(inputNumbers, targetDiv){
+		for(i=1; i<=49; i++){
+			let div = document.createElement("div");
+			div.textContent = i.toString();
+			div.classList.add("numbers");
+
+			if(inputNumbers.includes(i.toString())){
+				div.style.backgroundColor = "orange";
+			}
+
+			targetDiv.appendChild(div);
+		}
+	}
+
 	getNumbersBtn.addEventListener("click", function(){
 		targetDiv.innerHTML = "";
 
@@ -12,26 +26,16 @@ function solve() {
 
 		if(inputNumbers.length == 6){
 
-			let validationCounter = 0;
+			let invalidNumbersCount = 0;
 			
 			for(i=0; i<inputNumbers.length; i++){
 				if(inputNumbers[i] < 1 || inputNumbers[i] > 49){
-					validationCounter++;
+					invalidNumbersCount++;
 				}
 			}
 
-			if(validationCounter == 0){
-				for(i=1; i<=49; i++){
-					let div = document.createElement("div");
-					div.textContent = i.toString();
-					div.classList.add("numbers");
-
-					if(inputNumbers.includes(i.toString())){
-						div.style.backgroundColor = "orange";
-					}
-
-					targetDiv.appendChild(div);
-				}
+			if(invalidNumbersCount == 0){
+				CalculatingEndResult(inputNumbers, targetDiv);
 			}
 		}
 			

@@ -3,7 +3,6 @@ function solve() {
     
     let neededRows = document.getElementsByTagName("tr");
 
-    console.log(neededRows[2]);
     searchBtn.addEventListener("click", function(){
         let inputField = document.getElementById("searchField");
 
@@ -16,7 +15,6 @@ function solve() {
 
         for(i=2; i<neededRows.length; i++){
             for(ch=0; ch<neededRows[i].childElementCount; ch++){
-
                 if(neededRows[i].children[ch].textContent.toLowerCase() == inputField.textContent.toLowerCase()
                  || neededRows[i].children[ch].textContent.toLowerCase().includes(inputField.value.toLowerCase()))
                 {

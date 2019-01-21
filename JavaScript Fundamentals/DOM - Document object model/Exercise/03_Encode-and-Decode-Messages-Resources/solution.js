@@ -2,21 +2,17 @@ function solve() {
 	let textAreas = document.getElementsByTagName("textarea");
 	let buttons = document.getElementsByTagName("button");
 
-	let decodeTextArea = textAreas[1];
-	let decodeBtn = buttons[1];
-	decodeBtn.addEventListener("click", function(){
-		let message = decodeTextArea.value;
+	function DecodeMessage(textArea){
+		let message = textArea.value;
 		let decodedMessage = "";
 		for(i=0; i<message.length; i++){
 			decodedMessage += String.fromCharCode(message.charCodeAt(i)-1);
 		}
 		
 		decodeTextArea.value = decodedMessage;
-	});
+	}
 
-	let encodeTextArea = textAreas[0];
-	let encodeBtn = buttons[0];
-	encodeBtn.addEventListener("click", function(){
+	function EncodeMessage(textArea){
 		let message = encodeTextArea.value;
 		let encodedMessage = "";
 		for(i=0; i<message.length; i++){
@@ -24,6 +20,18 @@ function solve() {
 		}
 		encodeTextArea.value = "";
 		decodeTextArea.value = encodedMessage;
+	}
+
+	let decodeTextArea = textAreas[1];
+	let decodeBtn = buttons[1];
+	decodeBtn.addEventListener("click", function(){
+		DecodeMessage(decodeTextArea);
+	});
+
+	let encodeTextArea = textAreas[0];
+	let encodeBtn = buttons[0];
+	encodeBtn.addEventListener("click", function(){
+		EncodeMessage(encodeTextArea);
 	});
 
 }

@@ -1,6 +1,6 @@
 function solve() {
     let historyDiv = document.getElementById("history");
-
+    
     let spans = document.querySelectorAll("span");
 
     let player1CurrentCard = "";
@@ -15,81 +15,59 @@ function solve() {
     let leftSpan = spans[0];
     let rightSpan = spans[2];
 
-    let playerOneCards = document.getElementById("player1Div").children;
+    function AppendResult(){    
+        leftSpan.textContent = "";
+        rightSpan.textContent = "";
 
-    for(i=0; i<playerOneCards.length; i++){
-        let currentCard = playerOneCards[i];
+        if(+leftCard > +rightCard){
+            player1CurrentCard.style.border = "2px solid green";
+            player2CurrentCard.style.border = "2px solid darkred";
+        }
+        else{
+            player2CurrentCard.style.border = "2px solid green";
+            player1CurrentCard.style.border = "2px solid darkred";
+        }
+
+        setTimeout(() => {
+            leftSpan.textContent = "";
+            rightSpan.textContent = "";
+        }, 2000);
         
-        currentCard.addEventListener("click", function () {
+        historyDiv.textContent += "[" + leftCard + " vs " + rightCard + "] ";
+    }
+
+     function CardAction(currentCard, playerDiv) {
+        currentCard.addEventListener("click", function(){
+                
             currentCard.setAttribute("src", "images/whiteCard.jpg");
-            player1CurrentCard = currentCard;
 
             let cardName = currentCard.getAttribute("name");
         
-            leftCard = cardName.toString();
-            
-            leftSpan.textContent = cardName;
+            if(playerDiv.getAttribute("id") == "player1Div"){
+                player1CurrentCard = currentCard;
+                leftCard = cardName.toString();
+                leftSpan.textContent = cardName;    
+            }
+            else{
+                player2CurrentCard = currentCard;
+                rightCard = cardName.toString();
+                rightSpan.textContent = cardName;
+            }
 
             if(leftSpan.textContent != "" && rightSpan.textContent != ""){
-                leftSpan.textContent = "";
-                rightSpan.textContent = "";
-
-                if(+leftCard > +rightCard){
-                    player1CurrentCard.style.border = "2px solid green";
-                    player2CurrentCard.style.border = "2px solid darkred";
-                }
-                else{
-                    player2CurrentCard.style.border = "2px solid green";
-                    player1CurrentCard.style.border = "2px solid darkred";
-                }
-
-                setTimeout(() => {
-                    leftSpan.textContent = "";
-                    rightSpan.textContent = "";
-                }, 2000);
-                
-                historyDiv.textContent += "[" + leftCard + " vs " + rightCard + "] ";
+                AppendResult();
             }
-        })
-
-    }
-
-    let playerTwoCards = document.getElementById("player2Div").children;
-
-    for(i=0; i<playerTwoCards.length; i++){
-        let currentCard = playerTwoCards[i];
         
-        currentCard.addEventListener("click", function () {
-            currentCard.setAttribute("src", "images/whiteCard.jpg");
-            player2CurrentCard = currentCard;
-
-            let cardName = currentCard.getAttribute("name");
-            
-            rightCard = cardName.toString();
-            rightSpan.textContent = cardName;
-
-            if(leftSpan.textContent != "" && rightSpan.textContent != "" ){
-                leftSpan.textContent = "";
-                rightSpan.textContent = "";
-                
-                if(+leftCard > +rightCard){
-                    player2CurrentCard.style.border = "2px solid darkred";
-                    player1CurrentCard.style.border = "2px solid green";
-                }
-                else{
-                    player2CurrentCard.style.border = "2px solid green";
-                    player1CurrentCard.style.border = "2px solid darkred";
-                }
-
-                setTimeout(() => {
-                    leftSpan.textContent = "";
-                    rightSpan.textContent = "";
-                }, 2000);
-
-                historyDiv.textContent += "[" + leftCard + " vs " + rightCard + "] ";
-            }
-        })
-
+       })
     }
-    
+
+    let playerOneCards = Array.from(document.getElementById("player1Div").children).forEach((currentCard) => {
+        let player1Div = document.getElementById("player1Div");
+        CardAction(currentCard, player1Div);
+    });
+
+    let playerTwoCards = Array.from(document.getElementById("player2Div").children).forEach( (currentCard) => {
+        let player2Div = document.getElementById("player2Div");
+        CardAction(currentCard, player2Div);
+    });
 }

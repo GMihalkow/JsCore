@@ -23,26 +23,29 @@ function solve() {
 	let hexaButton = document.getElementsByTagName("option")[2];
 	let binaryButton = document.getElementsByTagName("option")[3];
 
-	convertButton.addEventListener("click", function(){
-
-		if(document.getElementById("selectMenuTo").value == emptyButton.value){
-			emptyButton.setAttribute("selected", "");
-			hexaButton.removeAttribute("selected");
-			binaryButton.removeAttribute("selected");
-		};
+	function ChangeSelectValue(convertButton){
+		convertButton.addEventListener("click", function(){
+			if(document.getElementById("selectMenuTo").value == emptyButton.value){
+				emptyButton.setAttribute("selected", "");
+				hexaButton.removeAttribute("selected");
+				binaryButton.removeAttribute("selected");
+			};
+			
+			if(document.getElementById("selectMenuTo").value == hexaButton.value){
+				hexaButton.setAttribute("selected", "");
+				emptyButton.removeAttribute("selected");
+				binaryButton.removeAttribute("selected");
+			};
 		
-		if(document.getElementById("selectMenuTo").value == hexaButton.value){
-			hexaButton.setAttribute("selected", "");
-			emptyButton.removeAttribute("selected");
-			binaryButton.removeAttribute("selected");
-		};
-	
-		if(document.getElementById("selectMenuTo").value == binaryButton.value){
-			binaryButton.setAttribute("selected", "");
-			emptyButton.removeAttribute("selected");
-			hexaButton.removeAttribute("selected");
-		};
-	});
+			if(document.getElementById("selectMenuTo").value == binaryButton.value){
+				binaryButton.setAttribute("selected", "");
+				emptyButton.removeAttribute("selected");
+				hexaButton.removeAttribute("selected");
+			};
+		});
+	}
+
+	ChangeSelectValue(convertButton);
 	
 	let button = document.getElementsByTagName("button")[0];
 	button.addEventListener("click", function(){

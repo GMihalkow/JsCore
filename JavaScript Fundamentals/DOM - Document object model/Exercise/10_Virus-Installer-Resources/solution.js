@@ -10,16 +10,39 @@ function solve() {
     let thirdStepDiv = document.getElementById("thirdStep");
 
     let licenseBtns = document.getElementsByName("license");
-                
-    for(i=0; i<licenseBtns.length; i++){
 
-        let currentBtn = licenseBtns[i];
+    function FinalTimeOut() {
+        setTimeout(function(){
 
-            licenseBtns[i].addEventListener("click", function(){
+        nextBtn.style.display = "inline";
+        
+        nextBtn.addEventListener("click", function(){
+            secondStepDiv.style.display = "none";
+            thirdStepDiv.style.display = "block";
+        })
+
+        }, 3000);
+    }
+
+    function ChangeBackground(){
+        document.getElementById("content").style.backgroundImage = "url()";
+        firstStepDiv.style.display = "block";
+    }
+
+    function DisplaySecondStep(){
+        Array.from(licenseBtns).forEach(function (currentBtn) {
+            if(currentBtn.hasAttribute("checked") && currentBtn.value == "agree"){
+                    firstStepDiv.style.display = "none";
+                    secondStepDiv.style.display = "block";
+                    nextBtn.style.display = "none";
+            }
+        })
+    }
+    Array.from(licenseBtns).forEach(function(currentBtn) {
+        currentBtn.addEventListener("click", function(){
                 
             currentBtn.setAttribute("checked", "");
 
-                
                 for(index=0; index<licenseBtns.length; index++){
                     if(licenseBtns[index] != currentBtn){
                         licenseBtns[index].removeAttribute("checked");
@@ -27,42 +50,20 @@ function solve() {
                 }
               
         });   
-    }
+    })
 
         nextBtn.addEventListener("click", function(){
             
             if(firstStepDiv.display != "block" && secondStepDiv.display != "block" && thirdStepDiv.display != "block"){
-               
-                document.getElementById("content").style.backgroundImage = "url()";
-                firstStepDiv.style.display = "block";
-
+                ChangeBackground();
             }
 
             if(firstStepDiv.display != "none" && secondStepDiv.display != "block" && thirdStepDiv.display != "block"){
-                
-                for(i=0; i<licenseBtns.length; i++){
-                    if(licenseBtns[i].hasAttribute("checked") && licenseBtns[i].value == "agree"){
-                            firstStepDiv.style.display = "none";
-                            secondStepDiv.style.display = "block";
-                            nextBtn.style.display = "none";
-                    }
-                }
-
+               DisplaySecondStep();
             }
 
             if(firstStepDiv.display != "block" && secondStepDiv.display != "none" && thirdStepDiv.display != "block"){
-               
-                setTimeout(function(){
-
-                    nextBtn.style.display = "inline";
-                    
-                    nextBtn.addEventListener("click", function(){
-                        secondStepDiv.style.display = "none";
-                        thirdStepDiv.style.display = "block";
-                    })
-
-                }, 3000);
-
+                FinalTimeOut();
             }
 
         });
