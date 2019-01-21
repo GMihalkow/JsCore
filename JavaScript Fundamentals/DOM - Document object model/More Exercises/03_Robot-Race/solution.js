@@ -27,35 +27,33 @@ function solve(){
             
             switch(robotNameInput.value){
                case"softuni":{
-                     if(distance >= 0){
+                     if(distance > 0){
                         
                         if(action == "forward"){
-
-                           console.log("softuniRobotTravelledDistance: "+ softuniRobotTravelledDistance);
 
                            if(distance + softuniRobotTravelledDistance <= 80){
                               softuniRobot.style.marginLeft = distance + softuniRobotTravelledDistance + "%";
                               softuniRobotTravelledDistance += distance;
 
-                              if(softuniRobotTravelledDistance == 80){
+                              
+                              if(softuniRobotTravelledDistance >= 80){
                               
                                  if(finishedCount == 0){
                                     resultSpan.textContent = "SOFTUNI WIN THE RACE!"
                                  }
                                  
                                  if(finishedCount == 1){
-                                    resultSpan.textContent = "SOFTUNI FINISHED 2!"
+                                    resultSpan.textContent = "SOFTUNI FINISHED 2"
                                  }
                                  
                                  if(finishedCount == 2){
-                                    resultSpan.textContent = "SOFTUNI FINISHED 3!"
+                                    resultSpan.textContent = "SOFTUNI FINISHED 3"
                                  }
                                  
                                  finishedCount++;
-
                               }
                               else{
-                                 resultSpan.textContent = "softuni move " + distance + " forward.";
+                                 resultSpan.textContent = "softuni move " + distance + " forward";
                               }
                            }
                            else{
@@ -73,12 +71,11 @@ function solve(){
                                  softuniRobot.style.marginLeft = softuniRobotTravelledDistance  - distance + "%";
                                  softuniRobotTravelledDistance -= distance;
 
-                                 resultSpan.textContent = "softuni was distracted and he got behind with " + distance + " meters.";
+                                 resultSpan.textContent = "softuni was distracted and he got behind with " + distance + " meters";
                               }
                               else{
                                  resultSpan.textContent = "softuni can't move so backward"
                               }
-
                            }
                         }
 
@@ -87,33 +84,33 @@ function solve(){
                }break;
 
                case"facebook":{
-                     if(distance >= 0){
+                     if(distance > 0){
                         
                         if(action == "forward"){
-                           console.log("facebookRobotTravelledDistance: "+ facebookRobotTravelledDistance);
+
 
                            if(distance + facebookRobotTravelledDistance <= 80){
                               facebookRobot.style.marginLeft = distance + facebookRobotTravelledDistance + "%";
                               facebookRobotTravelledDistance += distance;
 
-                              if(facebookRobotTravelledDistance == 80){
+                              if(facebookRobotTravelledDistance >= 80){
                                  
                                  if(finishedCount == 0){
                                     resultSpan.textContent = "FACEBOOK WIN THE RACE!"
                                  }
                                  
                                  if(finishedCount == 1){
-                                    resultSpan.textContent = "FACEBOOK FINISHED 2!"
+                                    resultSpan.textContent = "FACEBOOK FINISHED 2"
                                  }
                                  
                                  if(finishedCount == 2){
-                                    resultSpan.textContent = "FACEBOOK FINISHED 3!"
+                                    resultSpan.textContent = "FACEBOOK FINISHED 3"
                                  }
                                  
                                  finishedCount++;
                               }
                               else{
-                                 resultSpan.textContent = "facebook move " + distance + " forward.";
+                                 resultSpan.textContent = "facebook move " + distance + " forward";
                               }
                            }
                            else{
@@ -130,13 +127,12 @@ function solve(){
                                  facebookRobot.style.marginLeft = facebookRobotTravelledDistance  - distance + "%";
                                  facebookRobotTravelledDistance -= distance;
 
-                                 resultSpan.textContent = "facebook was distracted and he got behind with " + distance + " meters.";
+                                 resultSpan.textContent = "facebook was distracted and he got behind with " + distance + " meters";
                                  
                               }
                               else{
                                  resultSpan.textContent = "facebook can't move so backward"
                               }
-
                            }
                         }
 
@@ -144,32 +140,33 @@ function solve(){
                }break;
 
                case"google":{
-                     if(distance >= 0){
+                     if(distance > 0){
                         
                         if(action == "forward"){
-                           console.log("googleRobotTravelledDistance: "+ googleRobotTravelledDistance);
+                           console.log(googleRobotTravelledDistance);
                            if(distance + googleRobotTravelledDistance <= 80){
+                              console.log(googleRobotTravelledDistance);
                               googleRobot.style.marginLeft = distance + googleRobotTravelledDistance + "%";
                               googleRobotTravelledDistance += distance;
-
-                              if(googleRobotTravelledDistance == 80){
+                              console.log(googleRobotTravelledDistance);
+                              if(googleRobotTravelledDistance >= 80){
                            
                                  if(finishedCount == 0){
                                     resultSpan.textContent = "GOOGLE WIN THE RACE!"
                                  }
                                  
                                  if(finishedCount == 1){
-                                    resultSpan.textContent = "GOOGLE FINISHED 2!"
+                                    resultSpan.textContent = "GOOGLE FINISHED 2"
                                  }
                                  
                                  if(finishedCount == 2){
-                                    resultSpan.textContent = "GOOGLE FINISHED 3!"
+                                    resultSpan.textContent = "GOOGLE FINISHED 3"
                                  }
                                  
                                  finishedCount++;
                               }
                               else{
-                                 resultSpan.textContent = "google move " + distance + " forward.";
+                                 resultSpan.textContent = "google move " + distance + " forward";
                               }
                            }
                            else{
@@ -182,10 +179,10 @@ function solve(){
                               
                               if(googleRobotTravelledDistance - distance >= 0){
 
-                                 googleRobot.style.marginLeft = googleRobotTravelledDistance  - distance + "%";
+                                 googleRobot.style.marginLeft = googleRobotTravelledDistance - distance + "%";
                                  googleRobotTravelledDistance -= distance;
 
-                                 resultSpan.textContent = "google was distracted and he got behind with " + distance + " meters.";
+                                 resultSpan.textContent = "google was distracted and he got behind with " + distance + " meters";
                                  
                               }
                               else{
