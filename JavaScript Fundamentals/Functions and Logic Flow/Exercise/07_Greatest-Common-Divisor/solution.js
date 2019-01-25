@@ -1,57 +1,21 @@
-   function greatestCD() {
+function greatestCD() {
+   let resultSpan = document.getElementById("result");
 
-      let resultSpan = document.getElementById("result");
+   let firstNumber = Number(document.getElementById("num1").value);
+   let secondNumber = Number(document.getElementById("num2").value);
 
-      let firstNumber = document.getElementById("num1").value;
-      let secondNumber = document.getElementById("num2").value;
+   let num1 = firstNumber;
+   let num2 = secondNumber;
 
-      let gcd = 0;
-      if(+firstNumber !== 0 && +secondNumber !== 0)
-      {
-         if(+firstNumber > +secondNumber){
-            let divisor = +firstNumber;
-            let secondDivisor = +secondNumber;
-            while(divisor % secondDivisor !== 0){
-               let remainder = divisor % secondDivisor;
-               divisor = secondDivisor;
-               secondDivisor = remainder;
-               gcd = remainder;
-
-               console.log("remainder = " + remainder);
-               console.log("divisor = " + divisor);
-               console.log("secondDivisor = " + secondDivisor);
-            }
-
-            if(gcd === 0){
-               gcd = secondNumber;
-            }
-
-            resultSpan.innerHTML = gcd;
-         }
-         else{
-            let divisor = +secondNumber;
-            let secondDivisor = +firstNumber;
-            while(divisor % secondDivisor !== 0){
-               let remainder = divisor % secondDivisor;
-               divisor = secondDivisor;
-               secondDivisor = +remainder;
-               gcd = remainder;
-
-               console.log("remainder = " + remainder);
-               console.log("divisor = " + divisor);
-               console.log("secondDivisor = " + secondDivisor);
-            }
-
-            if(gcd === 0){
-               gcd = firstNumber;
-            }
-            resultSpan.innerHTML = gcd;
-         }
+   while (true) {
+      let temp = num1 % num2;
+      
+      num1 = num2
+      num2 = temp;
+      
+      if(!num2){
+         resultSpan.textContent = num1;
+         break;
       }
-      else{
-         resultSpan.innerHTML = "0";
-      }
-         document.getElementById("num1").value = "";
-         document.getElementById("num2").value = "";
-      // }
    }
+}
