@@ -59,7 +59,7 @@ function validate() {
         }
 
         let isCompanyFieldVisible = $("#companyInfo").css("display") !== "none";
-        let isCompanyNumberValid = parseInt(companyNumberField.val()) > 1000 && parseInt(companyNumberField.val()) < 9999;
+        let isCompanyNumberValid = parseInt(companyNumberField.val()) > 1000 && parseInt(companyNumberField.val()) <= 9999;
 
         if(isCompanyFieldVisible){
             if(isCompanyNumberValid){
@@ -93,8 +93,8 @@ function validate() {
         
         let companyInfoField = $("#companyInfo");
         if(target.checked === true){
-            $(target).removeAttr("checked");
-            companyInfoField.css("display", "none");
+            $(target).attr("checked", "checked");
+            companyInfoField.attr("style", "");
         } else {
             $(target).attr("checked", "checked");
             companyInfoField.attr("style", "");
