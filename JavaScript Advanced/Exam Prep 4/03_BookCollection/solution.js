@@ -42,6 +42,8 @@ class BookCollection {
         }
         
         this.shelf = Array.from(this.shelf).sort((a, b) => this.compareAuthorNames(a.bookAuthor, b.bookAuthor));
+
+        return this;
     }
 
     throwAwayBook(bookName){
@@ -57,6 +59,8 @@ class BookCollection {
             }
             return true;
         });
+
+        return this;
     }
 
     showBooks(genre){
@@ -94,11 +98,11 @@ class BookCollection {
 }
 
 let bedRoom = new BookCollection('Mixed', 'bedRoom', 1);
-// bedRoom.addBook("test", "Pesho", "Fiction");
-// bedRoom.addBook("test1", "Petar");
-// bedRoom.addBook("test2", "Ivan");
-// bedRoom.addBook("test3", "Biser");
-// bedRoom.addBook("test4", "Dimitar");
+bedRoom.addBook("test", "Pesho", "Fiction");
+bedRoom.addBook("test1", "Petar");
+bedRoom.addBook("test2", "Ivan");
+bedRoom.addBook("test3", "Biser");
+bedRoom.addBook("test4", "Dimitar");
 bedRoom.addBook("test5", "Gosho");
 bedRoom.throwAwayBook("test5");
-console.log(bedRoom.shelfCondition);
+console.log(bedRoom.toString());
