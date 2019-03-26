@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Books</title>
+</head>
+<body>
+    <div id="commands" class="text-center">
+        <button class="btn">Create</button>
+        <button class="btn">Delete</button>
+        <button class="btn">Load</button>
+        <button class="btn">Update</button>
+    </div>
+    <div id="createBookDiv" class="text-center p-20" style="display:none">
+        <h1>Create a book</h1>
+        <div id="addForm">
+            <label>Title</label>
+            <div class="p-10">
+                <input class="title" type="text">
+            </div>
+            <label>Author</label>
+            <div class="p-10">
+                <input class="author" type="text">
+            </div>
+            <label>ISBN</label>
+            <div class="p-10">
+                <input class="isbn" type="text">
+            </div>
+            <button id="addBtn" class="btn">Add</button>
+            <div id="actionsBox" class="text-danger"></div>
+        </div>
+    </div>
+    <div id="loadBooksDiv" class="text-center p-20" style="display:none">
+        <h1>Load books</h1>
+        <div id="books" class="mx-auto">
+            
+        </div>
+        <button id="loadBtn" class="btn m-10">Load</button>
+    </div>
+    <div id="deleteBookDiv" class="text-center p-20" style="display:none">
+        <h1>Delete book</h1>
+        <div id="deleteForm">
+            <label>Book Id</label>
+            <div class="p-10">
+                <input class="bookId" type="text">
+            </div>
+            <button id="deleteBtn" class="btn">Delete</button>
+            <div id="deleteActionsBox" class="text-danger"></div>
+        </div>
+    </div>
+    <div id="updateBookDiv" class="text-center p-20" style="display:none">
+        <h1>Update book</h1>
+        <div id="updateForm">
+            <label>Book Id</label>
+            <div class="p-10">
+                <input class="bookId" type="text">
+            </div>
+            <label>Title</label>
+            <div class="p-10">
+                <input class="title" type="text">
+            </div>
+            <label>Author</label>
+            <div class="p-10">
+                <input class="author" type="text">
+            </div>
+            <label>ISBN</label>
+            <div class="p-10">
+                <input class="isbn" type="text">
+            </div>
+            <button id="updateBtn" class="btn">Update</button>
+            <div id="updateActionsBox" class="text-danger"></div>
+        </div>
+    </div>
+</body>
+<script src="solution.js"></script>
+<script>attachEvents()</script>
+</html>
