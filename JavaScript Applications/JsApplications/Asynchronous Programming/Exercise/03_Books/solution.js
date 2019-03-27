@@ -57,7 +57,7 @@ function attachEvents(){
                 url: 'https://baas.kinvey.com/appdata/kid_B1K_U76PV/books',
                 type: 'POST',
                 beforeSend: function (xhr) {
-                    xhr.setRequestHeader("Authorization", "Basic a2lkX0IxS19VNzZQVjo3NjgxNjA2ZDY4MGQ0OTI4YmFlMmI2NjAzMTc1ZDA0Zg==");
+                    xhr.setRequestHeader("Authorization", "Basic Secret");
                 },
                 data:{ title, author, isbn }
             });
@@ -79,7 +79,7 @@ function attachEvents(){
             url: 'https://baas.kinvey.com/appdata/kid_B1K_U76PV/books',
             type: 'GET',
             beforeSend: function (xhr) {
-                xhr.setRequestHeader("Authorization", "Basic a2lkX0IxS19VNzZQVjo3NjgxNjA2ZDY4MGQ0OTI4YmFlMmI2NjAzMTc1ZDA0Zg==");
+                xhr.setRequestHeader("Authorization", "Basic Secret");
             }
         }).then((data) => {
             let booksElement = $("#books");
@@ -102,7 +102,7 @@ function attachEvents(){
             url: 'https://baas.kinvey.com/appdata/kid_B1K_U76PV/books/' + bookId,
             type: 'DELETE',
             beforeSend: function (xhr) {
-                xhr.setRequestHeader("Authorization", "Basic a2lkX0IxS19VNzZQVjo3NjgxNjA2ZDY4MGQ0OTI4YmFlMmI2NjAzMTc1ZDA0Zg==");
+                xhr.setRequestHeader("Authorization", "Basic Secret");
             }
         }).then(() => {
             deleteBox.removeClass("text-danger");
@@ -136,7 +136,7 @@ function attachEvents(){
                 url: 'https://baas.kinvey.com/appdata/kid_B1K_U76PV/books/' + bookId,
                 type: 'PUT',
                 beforeSend: function (xhr) {
-                    xhr.setRequestHeader("Authorization", "Basic a2lkX0IxS19VNzZQVjo3NjgxNjA2ZDY4MGQ0OTI4YmFlMmI2NjAzMTc1ZDA0Zg==");
+                    xhr.setRequestHeader("Authorization", "Basic Secret");
                 },
                 data:{ 
                     "title": bookTitle,
