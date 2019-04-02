@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shit</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <style>
+        #results {
+            background-color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .font-30{
+            font-size: 30px;
+        }
+
+        input{
+            outline: none;
+            border: black solid 1px;
+            height: 40px;
+            width: 30%;
+            font-size: 30px;
+        }
+
+        #results tr {
+            background-color: #AAAAAA;
+            padding: 5vh;
+            font-size: 1.5vw;
+        }
+
+        #results tr:nth-child(odd) {
+            background-color: #808080;
+        }
+
+        #results tr:first-child {
+            background-color: #000000;
+            color: #FFFFFF;
+            font-weight: bold;
+            font-size: 2vw;
+        }
+
+        #results tr th {
+            padding: 1vw;
+        }
+
+        #results tr td {
+            padding: 1vw;
+            transition: font-size 0.2s;
+        }
+
+        #results tr:not(:first-child):hover {
+            background-color: #F0F8FF;
+            color: #000000;
+            font-size: 2.25vw;
+        }
+
+        .p-0{
+            padding: 0px;
+        }
+
+        .m-0{
+            margin: 0px;
+        }
+
+        .text-center{
+            text-align: center;
+        }
+                
+        .btn{
+            cursor: pointer;
+            border:none;
+            outline:none;
+            border-radius: 5px;
+            font-weight: bold;
+            background: black;
+            color: white;
+            padding: 20px;
+            font-size: 30px;
+            display: inline;
+        }
+
+        .m-10{
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="text-center">Create a student</h1>
+    <div id="addForm" class="text-center m-10">
+        <label>
+            <h2 class="m-0 font-30">FirstName</h2>
+        </label>
+        <div class="p-10">
+            <input class="first-name" type="text">
+        </div>
+        <label>
+            <h2 class="m-0 font-30">LastName</h2>
+        </label>
+        <div class="p-10">
+            <input class="last-name" type="text">
+        </div>
+        <label>
+            <h2 class="m-0 font-30">FacultyNumber</h2>
+        </label>
+        <div class="p-10">
+            <input class="faculty-number" type="text">
+        </div>
+        <label>
+            <h2 class="m-0 font-30">Grade</h2>
+        </label>
+        <div class="p-10">
+            <input class="grade" type="number">
+        </div>
+        <div class="text-center">
+            <button id="addBtn" class="btn">Add</button>
+        </div>
+    </div>
+<table id="results">
+    <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Faculty Number</th>
+        <th>Grade</th>
+    </tr>
+</table>
+<script src="script.js"></script>
+</body>
+</html>
