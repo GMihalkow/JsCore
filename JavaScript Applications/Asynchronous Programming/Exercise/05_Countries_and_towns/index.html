@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Countries and Towns</title>
+    <style>
+        .custom-table {
+            background-color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            width: 70%;
+            margin: 0px auto;
+        }
+
+        .font-30{
+            font-size: 30px;
+        }
+
+        input{
+            outline: none;
+            border: black solid 1px;
+            height: 40px;
+            width: 30%;
+            font-size: 30px;
+        }
+
+        .custom-table tr {
+            background-color: #AAAAAA;
+            padding: 5vh;
+            font-size: 1.5vw;
+        }
+
+        .text-danger{
+            color: red;
+        }
+
+        
+        .custom-table tr:nth-child(odd) {
+            background-color: #808080;
+        }
+
+        .custom-table tr:first-child {
+            background-color: #000000;
+            color: #FFFFFF;
+            font-weight: bold;
+            font-size: 2vw;
+        }
+
+        .custom-table tr th {
+            padding: 1vw;
+        }
+
+        .custom-table tr td {
+            padding: 1vw;
+            transition: font-size 0.2s;
+        }
+
+        .custom-table tr:not(:first-child):hover {
+            background-color: #F0F8FF;
+            color: #000000;
+            font-size: 2.25vw;
+        }
+
+        .p-0{
+            padding: 0px;
+        }
+
+        .m-0{
+            margin: 0px;
+        }
+
+        .text-center{
+            text-align: center;
+        }
+                
+        .btn{
+            cursor: pointer;
+            border:none;
+            outline:none;
+            border-radius: 5px;
+            font-weight: bold;
+            background: black;
+            color: white;
+            padding: 20px;
+            font-size: 30px;
+            display: inline;
+        }
+
+        .text-success{
+            color: green;
+        }
+
+        .m-10{
+            margin: 10px;
+        }
+
+        .display-inline{
+            display: inline;
+        }
+
+        .shared-div{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+    </style>
+</head>
+<body>
+    <table id="results" class="custom-table">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
+    </table>
+    <div class="m-10">
+        <button id="listBtn" class="btn">List countries</button>
+        <button id="showCountryFormBtn" class="btn">Create a country</button>
+        <button id="showEditCountryFormBtn" class="btn">Edit a country</button>
+        <div id="townsByCountry" class="text-center m-10 p-10">   
+            <table id="towns" class="custom-table m-10 display-inline">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Country</th>
+                    <th>Actions</th>
+                </tr>
+            </table>
+            <h1>List towns by country</h1>
+            <label><h2>Country</h2></label>
+            <div class="p-10 m-10">
+                <input class="name" type="text">
+            </div>
+            <button id="listByCountriesBtn" class="btn">List towns by country</button>
+            <div id="createTown">
+                <h1>Create a town</h1>
+                <label><h2>ID</h2></label>
+                <div class="p-10 m-10">
+                    <input class="id" type="text">
+                </div>
+                <label><h2>Name</h2></label>
+                <div class="p-10 m-10">
+                    <input class="name" type="text">
+                </div>
+                <label><h2>Country</h2></label>
+                <div class="p-10 m-10">
+                    <input class="country" type="text">
+                </div>
+                <button id="createTownBtn" class="btn">Create a town</button>
+                <button id="editTownBtn" class="btn">Edit town</button>
+            </div>
+        </div>
+    </div>
+    <div id="createCountry" class="text-center" style="display:none">
+        <h1 class="text-center">Create a country</h1>
+        <label><h2>Name</h2></label>
+        <div class="p-10">
+            <input class="name" type="text">
+        </div>
+        <button id="createCountryBtn" class="btn m-10">Create</button>
+    </div>
+    <div id="editCountry" class="text-center" style="display:none">
+        <h1 class="text-center">Edit a country</h1>
+        <label><h2>ID</h2></label>
+        <div class="p-10">
+            <input class="id" type="text">
+        </div>
+        <label><h2>Name</h2></label>
+        <div class="p-10">
+            <input class="name" type="text">
+        </div>
+        <button id="editCountryBtn" class="btn m-10">Edit</button>
+    </div>
+    
+    <h1 id="notification" class="text-center">
+
+    </h1>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="./solution.js"></script>
+    <script> solve() </script>
+</body>
+</html>
