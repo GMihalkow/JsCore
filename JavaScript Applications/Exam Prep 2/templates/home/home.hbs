@@ -1,0 +1,9 @@
+{{> header}}
+{{#if loggedIn}}
+    {{> dashboard}}
+{{else}}    
+    <section class="basic">
+        <h1> Welcome to pet my pet!</h1>                
+    </section>
+{{/if}}
+{{> footer}}
