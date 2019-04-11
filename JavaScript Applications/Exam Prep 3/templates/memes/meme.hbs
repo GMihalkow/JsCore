@@ -1,0 +1,18 @@
+<div id="memes">
+    <div class="meme">
+        <a href="#/memes/details/{{_id}}" class="meme-title">{{title}}</a>
+        <br>
+        <a href="#"><img class="meme-image" src="{{imageUrl}}"></a>
+        <div class="info">
+            <div id="data-buttons">
+                <a href="#/memes/details/{{_id}}" class="custom-button">Check Out</a>
+                {{#if isMine}}
+                    <a href="#/memes/edit/{{_id}}" class="custom-button">Edit</a>
+                    <a href="#/memes/delete/{{_id}}" class="custom-button">Delete</a>
+                {{/if}}
+                <a href="#" class="creator">Creator: {{creator}}</a>
+            </div>
+        </div>
+        <hr>
+    </div>
+</div>
