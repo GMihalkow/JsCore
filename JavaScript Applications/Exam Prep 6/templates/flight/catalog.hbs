@@ -1,0 +1,10 @@
+{{> header}}
+    {{#if loggedIn}}
+    <section id="viewCatalog" class="background-img">
+        <a href="#/flights/create" class="add-flight">Add Flight +</a>
+        {{#each flights}}
+            {{> flight}}
+        {{/each}}
+    </section>
+    {{/if}}
+{{> footer}}
