@@ -1,0 +1,12 @@
+{{> header}}
+    <h1 class="text-center">Our Recipes</h1>    
+    {{#if recipesExist}}
+        <div id="sharedRecipes">
+            {{#each recipes}}
+                {{> recipe}}
+            {{/each}}
+        </div>
+    {{else}}
+        {{> notFound}}
+    {{/if}}
+{{> footer}}
